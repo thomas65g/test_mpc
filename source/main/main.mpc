@@ -1,0 +1,10 @@
+project(main) : i_globals, i_calc {
+  exename   = main
+
+  Source_Files {
+    main.cpp
+  }
+
+  Header_Files {
+  }
+}

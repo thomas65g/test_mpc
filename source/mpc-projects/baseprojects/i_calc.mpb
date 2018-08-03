@@ -1,0 +1,7 @@
+project {
+
+    includes += $(PROJ_TOP)/
+
+    libs += calc
+    after += calc
+}

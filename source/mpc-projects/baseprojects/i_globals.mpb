@@ -1,0 +1,78 @@
+project {
+    
+    specific (vc8, vc9, vc10, vc12, vc14) {
+        use_exe_modifier=1
+        unicode=1
+        macros+= WIN32
+        macros+= _WIN32
+        macros+= UNICODE
+        macros+= _UNICODE
+        macros+= _CRTDBG_MAP_ALLOC
+
+        //exception handling/rtti off
+        compile_flags_removed = /EHsc /GR /GX /EHc
+        //does only work with overriding like below - but because of warning not used now
+        //   compile_flags += /GR- /GX-
+    }
+    
+    specific (vc8) {
+        output_dir =  $(PROJ_TOP)\..\output\vc8
+        libout     =  $(PROJ_TOP)\..\output\vc8_lib
+        dllout     =  $(PROJ_TOP)\..\output\vc8
+        intermediate_dir = $(PROJ_TOP)\..\output\vc8_int
+        libpaths   =  $(PROJ_TOP)\..\output\vc8_lib
+        macros    +=_CRT_SECURE_NO_DEPRECATE
+    }
+
+    specific (vc9) {
+        use_lib_modifier = 1
+        libname_prefix = 
+        output_dir =  $(PROJ_TOP)\..\output\vc9
+        libout     =  $(PROJ_TOP)\..\output\vc9_lib
+        dllout     =  $(PROJ_TOP)\..\output\vc9
+        intermediate_dir = $(PROJ_TOP)\..\output\vc9_int
+        libpaths   =  $(PROJ_TOP)\..\output\vc9_lib
+        macros    +=_CRT_SECURE_NO_DEPRECATE
+    }
+
+    specific (vc10) {
+        output_dir       = $(PROJ_TOP)\..\output\vc10
+        libout           = $(PROJ_TOP)\..\output\vc10_lib
+        dllout           = $(PROJ_TOP)\..\output\vc10
+        intermediate_dir = $(PROJ_TOP)\..\output\vc10_int
+        libpaths         = $(PROJ_TOP)\..\output\vc10_lib
+        macros          +=_CRT_SECURE_NO_DEPRECATE
+    }
+
+    specific (vc12) {
+        output_dir       = $(PROJ_TOP)\..\output\vc12
+        libout           = $(PROJ_TOP)\..\output\vc12_lib
+        dllout           = $(PROJ_TOP)\..\output\vc12
+        intermediate_dir = $(PROJ_TOP)\..\output\vc12_int
+        libpaths         = $(PROJ_TOP)\..\output\vc12_lib
+        macros          +=_CRT_SECURE_NO_DEPRECATE
+    }
+    
+    specific (vc14) {
+        output_dir       = $(PROJ_TOP)/../output/vc14
+        libout           = $(PROJ_TOP)/../output/vc14_lib
+        dllout           = $(PROJ_TOP)/../output/vc14
+        intermediate_dir = $(PROJ_TOP)/../output/vc14_int
+        libpaths         = $(PROJ_TOP)/../output/vc14_lib
+        macros          +=_CRT_SECURE_NO_DEPRECATE
+    }
+
+    specific (make) {
+        macros += __linux__
+        //compile_flags += -m32
+        compile_flags += -std=c++0x
+        compile_flags += -ggdb 
+        compile_flags += -fpermissive
+        exeout       = $(PROJ_TOP)/../output/linux/bin
+        output_dir       = $(PROJ_TOP)/../output/linux/bin
+        libout           = $(PROJ_TOP)/../output/linux/lib
+        dllout           = $(PROJ_TOP)/../output/linux/bin
+        intermediate_dir = $(PROJ_TOP)/../output/linux/tmp
+        libpaths         = $(PROJ_TOP)/../output/linux/lib
+    }
+}

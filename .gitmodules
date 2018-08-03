@@ -1,0 +1,3 @@
+[submodule "tools/MPC"]
+	path = tools/MPC
+	url = https://github.com/thomas65g/MPC.git

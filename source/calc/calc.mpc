@@ -1,0 +1,13 @@
+project(calc) : i_globals {
+  sharedname  = calc
+
+  includes += $(PROJ_TOP)/
+      
+  Source_Files {
+    calc.cpp
+  }
+
+  Header_Files {
+    calc.h
+  }
+}

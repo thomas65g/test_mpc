@@ -1,6 +1,6 @@
 workspace {
     static {
-        //cmdline+=-static 
+        cmdline+=-static 
         $(PROJ_TOP)/main/main.mpc
         $(PROJ_TOP)/calc/calc.mpc
     }

@@ -64,15 +64,16 @@ project {
 
     specific (make) {
         macros += __linux__
-        //compile_flags += -m32
+        compile_flags += -m32
         compile_flags += -std=c++0x
         compile_flags += -ggdb 
         compile_flags += -fpermissive
         exeout       = $(PROJ_TOP)/../output/linux/bin
-        output_dir       = $(PROJ_TOP)/../output/linux/bin
+        obj_dir = $(PROJ_TOP)/../output/linux/obj/
+        //output_dir       = $(PROJ_TOP)/../output/linux/bin
         libout           = $(PROJ_TOP)/../output/linux/lib
         dllout           = $(PROJ_TOP)/../output/linux/bin
-        intermediate_dir = $(PROJ_TOP)/../output/linux/tmp
+        targetoutdir     = i486/
         libpaths         = $(PROJ_TOP)/../output/linux/lib
     }
 }
